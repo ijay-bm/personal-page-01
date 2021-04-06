@@ -4,340 +4,341 @@
 // $customCol4: #231313;
 //
 // @mixin custom-border-image-2($color, $direction: "to bottom right") {
-// 	border-style: solid;
-// 	border-image: linear-gradient(to bottom right, $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color);
-// 	border-image-slice: 1;
-// 	border-image-width: 1px;
-// 	position: relative;
-// 	&::before {
-// 		position: absolute;
-// 		// display: block;
-// 		// background: red;
-// 		content: "";
-// 		height: calc(100% + 20px);
-// 		width: calc(100% + 20px);
-// 		top: -10px;
-// 		left: -10px;
-//
-// 		border-style: solid;
-// 		border-image: linear-gradient(to bottom right, $color 10%,10%, rgba(242, 204, 143, 0) 90%,90%, $color);
-// 		border-image-slice: 1;
-// 		border-image-width: 1px;
-// 		// height: 500px;
-// 		// width: 50px;
-// 		// border-style: solid;
-// 		// border-image: linear-gradient(to bottom right, $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color);
-// 		// border-image-slice: 1;
-// 		// border-image-width: 1px;
-// 	}
-// }
-
-.section.hobbies {
-	user-select: none;
-  // > .container {
-  //   max-width: 1200px;
-  // }
-  background: #17252e;
-  background: linear-gradient(rgba(23,37,46,0.98),rgba(23,37,46,0.98)),url('../images/bg.png');
-  background-size: cover;
-  background-position: bottom;
-  background-attachment: fixed;
-
-  overflow: auto; //fixes the problem where the parent ignores child margin
-
-  color: #ddd;
-
-	min-height: auto;
-
-  > .container {
-		max-width: 100%;
-    padding: 0;
-    margin: 0;
-
-
-    .cards {
-      display: flex;
-      flex-wrap: nowrap;
-			overflow: hidden;
-			position: relative;
-      > .card {
-				pointer-events: none;
-        @include custom-border-image-2($customCol1);
-
-        position: absolute;
-				height: var(--card-height-to-use);
-
-        background: #ddd;
-        color: #333;
-
-        width: 300px;
-				margin: 10px;
-
-				// display: inline-block;
-				flex-shrink: 0;
-				// position: absolute;
-				// left: 50px;
-
-				&.transition {
-					transition: all 0.15s ease-out;
-				}
-
-				// var(--dis) +
-				// transform:
-				// translateX(
-				// 	calc(
-				// 		 var(--cards-container-width-50) - (var(--current-card-i) * (100%)) - (100% / 2) + 10px - (20px * (var(--current-card-i) + 1)) + (var(--drag-displacement, 0px))
-				// 	)
-				// );
-				top: 0;
-				left: 120px;
-				// left: calc( var(--cards-container-width-50) + )
-
-				// scale(
-				// 	calc(
-				// 		var(--cards-container-width-50) - (var(--current-card-i) * (100%))
-				// 	)
-				// );
-
-      	> h4 {
-      		// // font-size: 25px;
-      		// font-weight: 300;
-          margin: 0;
-          text-align: center;
-      	}
-
-        p {
-          padding: 0 5px;
-					margin: 10px 0;
-          text-align: justify;
-        }
-
-      	> i {
-					display: none; //TEMP
-          position: absolute;
-      		font-size: 96px;
-      		margin: 0;
-      		padding: 0;
-      		// font-size: 72px;
-      		color: $customCol1;
-          // text-shadow: 0 0 3px #333;
-
-          opacity: 0.2;
-					transform: scale(1.2);
-
-					// width: 100%;
-
-					text-align: center;
-					// left: 10%;
-					// right: 10%;
-					width: 100%;
-
-      	  // background: -webkit-linear-gradient(#eee, #333);
-      	  // -webkit-background-clip: text;
-      	  // -webkit-text-fill-color: transparent;
-      		// // #17252e, #432323, #231313
-      		// &[class="icon-sheet-music"] {
-      		// 	color: white;
-      		// }
-      		// &[class="icon-monitor-keyboardb-mouse"] {
-      		// 	color: white;
-      		// }
-      		// &[class="icon-movies-4k"] {
-      		// 	color: white;
-      		// }
-      		// &[class="icon-anime-tv"] {
-      		// 	color: white;
-      		// }
-      		// &[class="icon-www"] {
-      		// 	color: white;
-      		// }
-      		// &[class="icon-coffee_mug"] {
-      		// 	color: white;
-      		// }
-      	}
-
-      	// >i[class="icon-sheet-music"] {
-      	// 	color: white;
-      	// }
-
-      	// > a {
-      	// 	margin-top: auto;
-      	// }
-        //
-      	// > a:hover {
-      	// 	color: white;
-      	// }
-        //
-      	// position: relative;
-      	// &::before {
-      	// 	position: absolute;
-      	// 	content: "";
-      	// 	height: calc(100% - 60px);
-      	// 	width: calc(100% - 30px);
-      	// 	top: 45px;
-      	// 	left: 15px;
-      	// 	border: 1px solid $customCol1;
-      	// }
-      }
-
-
-
-    }
-  }
-
-	> .nav-menu {
-		text-align: center;
-		position: relative;
-
-		// display: flex;
-		// align-items: center;
-		// justify-content: center;
-
-		> * {
-			display: inline-block;
-			position: relative;
-		}
-
-		> .prev {
-			width: 0;
-			height: 0;
-			border-top: 10px solid transparent;
-			border-bottom: 10px solid transparent;
-			border-right: 10px solid $customCol1;
-			transition: all 0.15s ease-in-out;
-
-			cursor: pointer;
-			&::after {
-				content: '';
-				width: 0;
-				height: 0;
-				border-top: 10px solid transparent;
-				border-bottom: 10px solid transparent;
-				border-right: 10px solid $customCol1;
-				position: absolute;
-				left: -12px;
-				// right: 0;
-				top: -10px;
-				transition: all 0.15s ease-in-out;
-			}
-			&::before {
-				content: '';
-				width: 0;
-				height: 0;
-				border-top: 10px solid transparent;
-				border-bottom: 10px solid transparent;
-				border-right: 10px solid $customCol1;
-				position: absolute;
-				left: -24px;
-				// right: -10px;
-				top: -10px;
-				transition: all 0.15s ease-in-out;
-			}
-
-			&:hover {
-				border-right-color: #ddd;
-				&::after {
-					border-right-color: #ddd;
-				}
-				&::before {
-					border-right-color: #ddd;
-				}
-			}
-
-			&.disabled {
-				cursor: default;
-				border-right-color: #333;
-				&::after {
-					border-right-color: #333;
-				}
-				&::before {
-					border-right-color: #333;
-				}
-
-				// &:hover {
-				// 	border-right: 10px solid #ddd;
-				// 	&::after {
-				// 		border-right: 10px solid #ddd;
-				// 	}
-				// 	&::before {
-				// 		border-right: 10px solid #ddd;
-				// 	}
+	// 	border-style: solid;
+	// 	border-image: linear-gradient(to bottom right, $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color);
+	// 	border-image-slice: 1;
+	// 	border-image-width: 1px;
+	// 	position: relative;
+	// 	&::before {
+		// 		position: absolute;
+		// 		// display: block;
+		// 		// background: red;
+		// 		content: "";
+		// 		height: calc(100% + 20px);
+		// 		width: calc(100% + 20px);
+		// 		top: -10px;
+		// 		left: -10px;
+		//
+		// 		border-style: solid;
+		// 		border-image: linear-gradient(to bottom right, $color 10%,10%, rgba(242, 204, 143, 0) 90%,90%, $color);
+		// 		border-image-slice: 1;
+		// 		border-image-width: 1px;
+		// 		// height: 500px;
+		// 		// width: 50px;
+		// 		// border-style: solid;
+		// 		// border-image: linear-gradient(to bottom right, $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color, rgba(242, 204, 143, 0), rgba(242, 204, 143, 0), $color);
+		// 		// border-image-slice: 1;
+		// 		// border-image-width: 1px;
+		// 	}
+		// }
+		
+		.section.hobbies {
+			user-select: none;
+			// > .container {
+				//   max-width: 1200px;
 				// }
-			}
-		}
-
-		> .divider {
-			// height: 2px;
-			width: 100px;
-			// margin: 0 10px;
-			// background: $customCol1;
-		}
-
-		> .next {
-			width: 0;
-			height: 0;
-			border-top: 10px solid transparent;
-			border-bottom: 10px solid transparent;
-			border-left: 10px solid $customCol1;
-			transition: all 0.15s ease-in-out;
-
-			cursor: pointer;
-			&::after {
-				content: '';
-				width: 0;
-				height: 0;
-				border-top: 10px solid transparent;
-				border-bottom: 10px solid transparent;
-				border-left: 10px solid $customCol1;
-				position: absolute;
-				right: -12px;
-				top: -10px;
-				transition: all 0.15s ease-in-out;
-			}
-			&::before {
-				content: '';
-				width: 0;
-				height: 0;
-				border-top: 10px solid transparent;
-				border-bottom: 10px solid transparent;
-				border-left: 10px solid $customCol1;
-				position: absolute;
-				right: -24px;
-				top: -10px;
-				transition: all 0.15s ease-in-out;
-			}
-
-			&:hover {
-				border-left: 10px solid #ddd;
-				&::after {
-					border-left: 10px solid #ddd;
-				}
-				&::before {
-					border-left: 10px solid #ddd;
-				}
-			}
-
-			&.disabled {
-				cursor: default;
-				border-left-color: #333;
-				&::after {
-					border-left-color: #333;
-				}
-				&::before {
-					border-left-color: #333;
-				}
-
-				// &:hover {
-				// 	border-left: 10px solid #ddd;
-				// 	&::after {
-				// 		border-left: 10px solid #ddd;
-				// 	}
-				// 	&::before {
-				// 		border-left: 10px solid #ddd;
-				// 	}
-				// }
-			}
-		}
-	}
-
-}
+				background: #17252e;
+				background: linear-gradient(rgba(23,37,46,0.98),rgba(23,37,46,0.98)),url('../images/bg.webp');
+				background-size: cover;
+				background-position: bottom;
+				background-attachment: fixed;
+				
+				overflow: auto; //fixes the problem where the parent ignores child margin
+				
+				color: #ddd;
+				
+				min-height: auto;
+				
+				> .container {
+					max-width: 100%;
+					padding: 0;
+					margin: 0;
+					
+					
+					.cards {
+						display: flex;
+						flex-wrap: nowrap;
+						overflow: hidden;
+						position: relative;
+						> .card {
+							pointer-events: none;
+							@include custom-border-image-2($customCol1);
+							
+							position: absolute;
+							height: var(--card-height-to-use);
+							
+							background: #ddd;
+							color: #333;
+							
+							width: 300px;
+							margin: 10px;
+							
+							// display: inline-block;
+							flex-shrink: 0;
+							// position: absolute;
+							// left: 50px;
+							
+							&.transition {
+								transition: all 0.15s ease-out;
+							}
+							
+							// var(--dis) +
+							// transform:
+							// translateX(
+							// 	calc(
+							// 		 var(--cards-container-width-50) - (var(--current-card-i) * (100%)) - (100% / 2) + 10px - (20px * (var(--current-card-i) + 1)) + (var(--drag-displacement, 0px))
+							// 	)
+							// );
+							top: 0;
+							left: 120px;
+							// left: calc( var(--cards-container-width-50) + )
+							
+							// scale(
+							// 	calc(
+							// 		var(--cards-container-width-50) - (var(--current-card-i) * (100%))
+							// 	)
+							// );
+							
+							> h4 {
+								// // font-size: 25px;
+								// font-weight: 300;
+								margin: 0;
+								text-align: center;
+							}
+							
+							p {
+								padding: 0 5px;
+								margin: 10px 0;
+								text-align: justify;
+							}
+							
+							> i {
+								display: none; //TEMP
+								position: absolute;
+								font-size: 96px;
+								margin: 0;
+								padding: 0;
+								// font-size: 72px;
+								color: $customCol1;
+								// text-shadow: 0 0 3px #333;
+								
+								opacity: 0.2;
+								transform: scale(1.2);
+								
+								// width: 100%;
+								
+								text-align: center;
+								// left: 10%;
+								// right: 10%;
+								width: 100%;
+								
+								// background: -webkit-linear-gradient(#eee, #333);
+								// -webkit-background-clip: text;
+								// -webkit-text-fill-color: transparent;
+								// // #17252e, #432323, #231313
+								// &[class="icon-sheet-music"] {
+									// 	color: white;
+									// }
+									// &[class="icon-monitor-keyboardb-mouse"] {
+										// 	color: white;
+										// }
+										// &[class="icon-movies-4k"] {
+											// 	color: white;
+											// }
+											// &[class="icon-anime-tv"] {
+												// 	color: white;
+												// }
+												// &[class="icon-www"] {
+													// 	color: white;
+													// }
+													// &[class="icon-coffee_mug"] {
+														// 	color: white;
+														// }
+													}
+													
+													// >i[class="icon-sheet-music"] {
+														// 	color: white;
+														// }
+														
+														// > a {
+															// 	margin-top: auto;
+															// }
+															//
+															// > a:hover {
+																// 	color: white;
+																// }
+																//
+																// position: relative;
+																// &::before {
+																	// 	position: absolute;
+																	// 	content: "";
+																	// 	height: calc(100% - 60px);
+																	// 	width: calc(100% - 30px);
+																	// 	top: 45px;
+																	// 	left: 15px;
+																	// 	border: 1px solid $customCol1;
+																	// }
+																}
+																
+																
+																
+															}
+														}
+														
+														> .nav-menu {
+															text-align: center;
+															position: relative;
+															
+															// display: flex;
+															// align-items: center;
+															// justify-content: center;
+															
+															> * {
+																display: inline-block;
+																position: relative;
+															}
+															
+															> .prev {
+																width: 0;
+																height: 0;
+																border-top: 10px solid transparent;
+																border-bottom: 10px solid transparent;
+																border-right: 10px solid $customCol1;
+																transition: all 0.15s ease-in-out;
+																
+																cursor: pointer;
+																&::after {
+																	content: '';
+																	width: 0;
+																	height: 0;
+																	border-top: 10px solid transparent;
+																	border-bottom: 10px solid transparent;
+																	border-right: 10px solid $customCol1;
+																	position: absolute;
+																	left: -12px;
+																	// right: 0;
+																	top: -10px;
+																	transition: all 0.15s ease-in-out;
+																}
+																&::before {
+																	content: '';
+																	width: 0;
+																	height: 0;
+																	border-top: 10px solid transparent;
+																	border-bottom: 10px solid transparent;
+																	border-right: 10px solid $customCol1;
+																	position: absolute;
+																	left: -24px;
+																	// right: -10px;
+																	top: -10px;
+																	transition: all 0.15s ease-in-out;
+																}
+																
+																&:hover {
+																	border-right-color: #ddd;
+																	&::after {
+																		border-right-color: #ddd;
+																	}
+																	&::before {
+																		border-right-color: #ddd;
+																	}
+																}
+																
+																&.disabled {
+																	cursor: default;
+																	border-right-color: #333;
+																	&::after {
+																		border-right-color: #333;
+																	}
+																	&::before {
+																		border-right-color: #333;
+																	}
+																	
+																	// &:hover {
+																		// 	border-right: 10px solid #ddd;
+																		// 	&::after {
+																			// 		border-right: 10px solid #ddd;
+																			// 	}
+																			// 	&::before {
+																				// 		border-right: 10px solid #ddd;
+																				// 	}
+																				// }
+																			}
+																		}
+																		
+																		> .divider {
+																			// height: 2px;
+																			width: 100px;
+																			// margin: 0 10px;
+																			// background: $customCol1;
+																		}
+																		
+																		> .next {
+																			width: 0;
+																			height: 0;
+																			border-top: 10px solid transparent;
+																			border-bottom: 10px solid transparent;
+																			border-left: 10px solid $customCol1;
+																			transition: all 0.15s ease-in-out;
+																			
+																			cursor: pointer;
+																			&::after {
+																				content: '';
+																				width: 0;
+																				height: 0;
+																				border-top: 10px solid transparent;
+																				border-bottom: 10px solid transparent;
+																				border-left: 10px solid $customCol1;
+																				position: absolute;
+																				right: -12px;
+																				top: -10px;
+																				transition: all 0.15s ease-in-out;
+																			}
+																			&::before {
+																				content: '';
+																				width: 0;
+																				height: 0;
+																				border-top: 10px solid transparent;
+																				border-bottom: 10px solid transparent;
+																				border-left: 10px solid $customCol1;
+																				position: absolute;
+																				right: -24px;
+																				top: -10px;
+																				transition: all 0.15s ease-in-out;
+																			}
+																			
+																			&:hover {
+																				border-left: 10px solid #ddd;
+																				&::after {
+																					border-left: 10px solid #ddd;
+																				}
+																				&::before {
+																					border-left: 10px solid #ddd;
+																				}
+																			}
+																			
+																			&.disabled {
+																				cursor: default;
+																				border-left-color: #333;
+																				&::after {
+																					border-left-color: #333;
+																				}
+																				&::before {
+																					border-left-color: #333;
+																				}
+																				
+																				// &:hover {
+																					// 	border-left: 10px solid #ddd;
+																					// 	&::after {
+																						// 		border-left: 10px solid #ddd;
+																						// 	}
+																						// 	&::before {
+																							// 		border-left: 10px solid #ddd;
+																							// 	}
+																							// }
+																						}
+																					}
+																				}
+																				
+																			}
+																			

@@ -1,137 +1,138 @@
 .section.additional-info {
-  background: #17252e;
-  background: linear-gradient(rgba(23,37,46,0.98),rgba(23,37,46,0.98)),url('../images/bg.png');
-  background-size: cover;
-  background-position: bottom;
-  background-attachment: fixed;
-
-  min-height: auto;
-
-
-
-  color: #ddd;
-  // color: #333;
-
-  > .container {
-    max-width: 920px;
-    padding: 10px;
-    // display: flex;
-    // overflow: hidden;
-    // flex-wrap: wrap;
-    // justify-content: center;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
-    // grid-template-rows: auto auto;
-    gap: 10px;
-
-    > * {
-      // border: 1px solid $customCol1;
-      min-height: 300px;
-      margin: 3px;
-    }
-
-    .title {
-      // background: #ddd;
-      color: #333;
-      // color: $customCol1;
-      background: $customCol1;
-      // color: #ddd;
-      margin-bottom: 2px;
-      padding: 5px;
-      margin: 2px;
-      letter-spacing: 0.15em;
-      text-align: center;
-      // border-bottom: 1px solid $customCol1;
-    }
-
-    .body {
-      // background: #ddd;
-      // margin-bottom: 2px;
-      padding: 10px;
-
-      .sub-title {
-        // color: $customCol1;
-        text-shadow: 0 0 4px $customCol1;
-        margin: 0;
-      }
-
-      i {
-        align-self: center;
-        padding-right: 5px;
-      }
-
-      .resume {
-        color: $customCol1;
-      }
-    }
-
-
-
-    span,ul,li,a {
-      font-size: 106.25%;
-      font-weight: 300;
-    }
-
-    a {
-      color: $customCol5;
-      text-decoration: none;
-      // font-size: 112.5%;
-      // font-weight: 400;
-      // text-shadow: 0 0 2px #ddd;
-    }
-  }
-
-  .education {
-    @include custom-border-image($customCol1, 'EDUCATION');
-    // .degree {
-    //   display: flex;
-    //   flex-wrap: wrap;
-    //   overflow: none;
-      // justify-content: space-around;
-      // align-items: center;
-      .course {
-
-      }
-      .year {
-        color: #999;
-      }
-    // }
-    > ul.body {
-      margin: 0;
-
-      padding: 0 10px 10px 30px;
-      // margin: default;
-      // list-style-type: &raquo;;
-      > li {
-
-      }
-    }
-
-    p {
-      margin: 0;
-    }
-
-  }
-
-  .social {
-    @include custom-border-image($customCol1, 'SOCIAL');
-
-  }
-
-  .work {
-    @include custom-border-image($customCol1, 'WORK ? ?');
-    p {margin: 0}
-    .github {
-      // display: flex;
-      // align-items: center;
-      // > div {
-      //   display: flex;
-      //   align-items: center;
-      // }
-    }
-
-  }
-
-
-}
+	background: #17252e;
+	background: linear-gradient(rgba(23,37,46,0.98),rgba(23,37,46,0.98)),url('../images/bg.webp');
+	background-size: cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	
+	min-height: auto;
+	
+	
+	
+	color: #ddd;
+	// color: #333;
+	
+	> .container {
+		max-width: 920px;
+		padding: 10px;
+		// display: flex;
+		// overflow: hidden;
+		// flex-wrap: wrap;
+		// justify-content: center;
+		
+		display: grid;
+		grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+		// grid-template-rows: auto auto;
+		gap: 10px;
+		
+		> * {
+			// border: 1px solid $customCol1;
+			min-height: 300px;
+			margin: 3px;
+		}
+		
+		.title {
+			// background: #ddd;
+			color: #333;
+			// color: $customCol1;
+			background: $customCol1;
+			// color: #ddd;
+			margin-bottom: 2px;
+			padding: 5px;
+			margin: 2px;
+			letter-spacing: 0.15em;
+			text-align: center;
+			// border-bottom: 1px solid $customCol1;
+		}
+		
+		.body {
+			// background: #ddd;
+			// margin-bottom: 2px;
+			padding: 10px;
+			
+			.sub-title {
+				// color: $customCol1;
+				text-shadow: 0 0 4px $customCol1;
+				margin: 0;
+			}
+			
+			i {
+				align-self: center;
+				padding-right: 5px;
+			}
+			
+			.resume {
+				color: $customCol1;
+			}
+		}
+		
+		
+		
+		span,ul,li,a {
+			font-size: 106.25%;
+			font-weight: 300;
+		}
+		
+		a {
+			color: $customCol5;
+			text-decoration: none;
+			// font-size: 112.5%;
+			// font-weight: 400;
+			// text-shadow: 0 0 2px #ddd;
+		}
+	}
+	
+	.education {
+		@include custom-border-image($customCol1, 'EDUCATION');
+		// .degree {
+			//   display: flex;
+			//   flex-wrap: wrap;
+			//   overflow: none;
+			// justify-content: space-around;
+			// align-items: center;
+			.course {
+				
+			}
+			.year {
+				color: #999;
+			}
+			// }
+			> ul.body {
+				margin: 0;
+				
+				padding: 0 10px 10px 30px;
+				// margin: default;
+				// list-style-type: &raquo;;
+				> li {
+					
+				}
+			}
+			
+			p {
+				margin: 0;
+			}
+			
+		}
+		
+		.social {
+			@include custom-border-image($customCol1, 'SOCIAL');
+			
+		}
+		
+		.work {
+			@include custom-border-image($customCol1, 'WORK ? ?');
+			p {margin: 0}
+			.github {
+				// display: flex;
+				// align-items: center;
+				// > div {
+					//   display: flex;
+					//   align-items: center;
+					// }
+				}
+				
+			}
+			
+			
+		}
+		
