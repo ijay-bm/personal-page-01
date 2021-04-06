@@ -1,116 +1,95 @@
 .section.skills {
-
-
-  // color: #ddd;
-  height: auto;
+	// color: #ddd;
+	height: auto;
 	min-height: auto;
 	overflow: auto; //fixes the problem where the parent ignores child margin
 
-
-
-  > .skills-legend {
-    position: relative;
-    text-align: center;
+	> .skills-legend {
+		position: relative;
+		text-align: center;
 		font-size: 0.8em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    > * {
-      // display: inline-block;
-      // margin: 0 10px;
-    }
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		> p {
 			margin: 0;
 		}
-  }
+	}
 
-  > .skills-list {
-    // width: fit-content;
-    margin: 0 auto;
+	> .skills-list {
+		// width: fit-content;
+		margin: 0 auto;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 
 		justify-content: center;
 
-    > * {
-      padding: 5px 8px 20px;
-      // width: 20%;
-      width: 220px;
-      margin:10px;
-      // min-width: 200px;
-    }
-
-		> .prized {
-			@include custom-border-image($customCol1, 'Prized');
+		> * {
+			padding: 5px 8px 20px;
+			// width: 20%;
+			width: 220px;
+			margin: 10px;
+			// min-width: 200px;
 		}
 
-    > .languages {
-      @include custom-border-image($customCol1, 'Languages');
-    }
+		> .prized {
+			@include custom-border-image($customCol1, "Prized");
+		}
 
-    > .frameworks {
-      @include custom-border-image($customCol1, 'Frameworks');
-    }
+		> .languages {
+			@include custom-border-image($customCol1, "Languages");
+		}
 
-    > .others {
-      @include custom-border-image($customCol1, 'Others');
-    }
+		> .frameworks {
+			@include custom-border-image($customCol1, "Frameworks");
+		}
 
-    .skill {
-      font-size: 1.1em;
-      letter-spacing: 0.06em;
-      font-weight: 200;
+		> .others {
+			@include custom-border-image($customCol1, "Others");
+		}
 
-      display: flex;
-      // flex-direction: column;
-      justify-content: space-between;
+		.skill {
+			font-size: 1.1em;
+			letter-spacing: 0.06em;
+			font-weight: 200;
 
-      transition: all 0.15s ease-in-out;
+			display: flex;
+			// flex-direction: column;
+			justify-content: space-between;
 
-      > .level {
-        color: $customCol1;
-      }
+			transition: all 0.15s ease-in-out;
 
-      &:hover::after {
-        position: absolute;
-        // color: #333;
-        // background: linear-gradient(to bottom, rgba(255,255,255,0.05),rgba(255,255,255,0))!important;
-        // background: linear-gradient(to right, transparent, rgba(0,0,0,0.9), transparet)!important;
-        > .level {
-          // color: #333;
-        }
-      }
-    }
-  }
+			> .level {
+				color: $customCol1;
+			}
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.05);
+			}
+		}
+	}
 }
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
-  .section.skills {
-    .skills-list {
-      > * {
-        width: 70%;
-      }
-      // padding-left: 20px;
-      // padding-right: 20px;
-      // > * {
-      //   width: 100%!important;
-      // }
-    }
-  }
+	.section.skills {
+		.skills-list {
+			> * {
+				width: 70%;
+			}
+			// padding-left: 20px;
+			// padding-right: 20px;
+			// > * {
+			//   width: 100%!important;
+			// }
+		}
+	}
 }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
-  .section.skills {
-    .skills-list {
-      > * {
-        // width: 40%;
-      }
-    }
-  }
 }
 
 // Medium devices (tablets, less than 992px)
@@ -119,10 +98,8 @@
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
-
 }
 
 // X-Large devices (large desktops, less than 1400px)
 @media (max-width: 1399.98px) {
-
 }
