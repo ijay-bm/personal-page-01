@@ -275,7 +275,7 @@ function updateTime(){
   gmt8 = new Date(gmt8.toLocaleString('en-us',{timeZone: 'Asia/Manila'}));
   let hours = gmt8.getHours() > 12 ? 24 - gmt8.getHours() : gmt8.getHours() ;
   let meridiem = gmt8.getHours() > 12 ? 'PM' : 'AM';
-  timeDiv.innerHTML = hours + ' : ' + gmt8.getMinutes() +' '+ meridiem;
+  timeDiv.innerHTML = hours + ' : ' + (gmt8.getMinutes() < 10 ? '0' : '' ) + gmt8.getMinutes() +' '+ meridiem;
   dateDiv.innerHTML = gmt8.toDateString();
 }
 
