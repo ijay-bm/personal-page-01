@@ -256,30 +256,41 @@ showHeaderTop(window.scrollY);
 
 // CLOCK
 
-
-
-
 const timeDiv = document.querySelector('.date-time > .time');
 const dateDiv = document.querySelector('.date-time > .date');
-let gmt8 = new Date();
+// let gmt8 = new Date();
+
+// updateTime();
+
+// setInterval(updateTime, 60000);
+
+// function updateTime(){
+//   gmt8 = new Date(gmt8.toLocaleString('en-us',{timeZone: 'Asia/Manila'}));
+//   let hours = gmt8.getHours() > 12 ? 24 - gmt8.getHours() : gmt8.getHours() ;
+//   let meridiem = gmt8.getHours() > 12 ? 'PM' : 'AM';
+//   timeDiv.innerHTML = hours + ' : ' + (gmt8.getMinutes() < 10 ? '0' : '' ) + gmt8.getMinutes() +' '+ meridiem;
+//   dateDiv.innerHTML = gmt8.toDateString();
+// }
+
+// console.log( gmt8.toDateString('en-us',{timeZone: 'Asia/Manila'}));
+
+updateTime = () => {
+  fetch('http://worldtimeapi.org/api/timezone/Asia/Manila')
+  .then(response => response.json())
+  .then(data => {
+    let gmt8 = new Date(data.datetime);
+    console.log(gmt8.getHours());
+    let hours = gmt8.getHours() > 12 ? gmt8.getHours()-12 : gmt8.getHours ;
+    hours = hours > 10 ? hours : `0${hours}`
+    let minutes = (gmt8.getMinutes() < 10 ? '0' : '') + gmt8.getMinutes();
+    let meridiem = gmt8.getHours() > 12 ? 'PM' : 'AM';
+    timeDiv.innerHTML = hours + ' : ' + minutes +' '+ meridiem;
+    dateDiv.innerHTML = gmt8.toDateString();
+  })  
+}
 
 updateTime();
 
 setInterval(updateTime, 60000);
-
-async function test() {
-  
-}
-
-function updateTime(){
-  gmt8 = new Date(gmt8.toLocaleString('en-us',{timeZone: 'Asia/Manila'}));
-  let hours = gmt8.getHours() > 12 ? 24 - gmt8.getHours() : gmt8.getHours() ;
-  let meridiem = gmt8.getHours() > 12 ? 'PM' : 'AM';
-  timeDiv.innerHTML = hours + ' : ' + (gmt8.getMinutes() < 10 ? '0' : '' ) + gmt8.getMinutes() +' '+ meridiem;
-  dateDiv.innerHTML = gmt8.toDateString();
-}
-
-// console.log( gmt8.toDateString('en-us',{timeZone: 'Asia/Manila'}));
-
 
 } //end of document ready
