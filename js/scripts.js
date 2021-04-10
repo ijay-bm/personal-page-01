@@ -196,23 +196,25 @@ const cardsContainerMouseUpEvent = new MouseEvent('mouseup', {
 
 var x1;
 var x2;
+var _x1
 var cardsPassedWhileDragging = 0;
 var nextCardI = currentCardI;
 var cardsContainerLock = false;
 
 function getClientX(event) {
-  return event.clientX || event.changedTouches[0].clientX;
+  return event.changedTouches ? event.changedTouches[0].clientX : event.clientX;
 }
 
 function contactStart(e) {
   cardsContainerLock = true;
   toggleClassesInElements(cards,'transition', false);
   x1 = getClientX(e);
-  var _x1 = getClientX(e);
+  _x1 = getClientX(e);
   cardsPassedWhileDragging = 0;
 }
 
 function contactDrag(e) {
+  e.preventDefault();
   if (cardsContainerLock) {
     var _x2 = getClientX(e);
     cards.forEach(function(v,k){
@@ -238,59 +240,67 @@ function contactDrag(e) {
 function contactEnd(e) {
   cardsContainerLock = false;
   toggleClassesInElements(cards,'transition', true);
-  currentCardI = nextCardI;
+  if (currentCardI == nextCardI) {
+    let ratio = (x1 - getClientX(e))/(cardWidth/2);
+    if ( ratio > 0.5 ) {
+      currentCardI = currentCardI !== cards.length-1 ? ++currentCardI : currentCardI;
+    } 
+    if (ratio < -0.5){
+      currentCardI = currentCardI !== 0 ? --currentCardI : currentCardI;
+    }
+  } else {
+    currentCardI = nextCardI;
+  }
+  
+  
   moveCards();
 }
 
 cardsContainer.addEventListener('mousedown', contactStart);
 cardsContainer.addEventListener('mousemove', contactDrag);
 cardsContainer.addEventListener('mouseup', contactEnd)
+cardsContainer.addEventListener('mouseleave', function(e){
+  if (cardsContainerLock) {
+    contactEnd(e);
+  }
+})
 
 cardsContainer.addEventListener('touchstart', contactStart);
 cardsContainer.addEventListener('touchmove', contactDrag);
 cardsContainer.addEventListener('touchend', contactEnd)
+
+document.addEventListener('touchmove', function() { e.preventDefault(); }, { passive:false });
+
 
 
 // INITIAL FUNCTIONS TO RUN
 showHeaderTop(window.scrollY);
 
 // CLOCK
-
 const timeDiv = document.querySelector('.date-time > .time');
 const dateDiv = document.querySelector('.date-time > .date');
-// let gmt8 = new Date();
-
-// updateTime();
-
-// setInterval(updateTime, 60000);
-
-// function updateTime(){
-//   gmt8 = new Date(gmt8.toLocaleString('en-us',{timeZone: 'Asia/Manila'}));
-//   let hours = gmt8.getHours() > 12 ? 24 - gmt8.getHours() : gmt8.getHours() ;
-//   let meridiem = gmt8.getHours() > 12 ? 'PM' : 'AM';
-//   timeDiv.innerHTML = hours + ' : ' + (gmt8.getMinutes() < 10 ? '0' : '' ) + gmt8.getMinutes() +' '+ meridiem;
-//   dateDiv.innerHTML = gmt8.toDateString();
-// }
-
-// console.log( gmt8.toDateString('en-us',{timeZone: 'Asia/Manila'}));
 
 updateTime = () => {
-  fetch('http://worldtimeapi.org/api/timezone/Asia/Manila')
+  fetch('http://worldtimeapi.org/api/timezone/Asia/Manila',{credentials: 'omit'})
   .then(response => response.json())
   .then(data => {
     let gmt8 = new Date(data.datetime);
-    console.log(gmt8.getHours());
-    let hours = gmt8.getHours() > 12 ? gmt8.getHours()-12 : gmt8.getHours ;
+    let hours = gmt8.getHours() > 12 ? (gmt8.getHours() - 12) : gmt8.getHours() ;
     hours = hours > 10 ? hours : `0${hours}`
     let minutes = (gmt8.getMinutes() < 10 ? '0' : '') + gmt8.getMinutes();
-    let meridiem = gmt8.getHours() > 12 ? 'PM' : 'AM';
+    let meridiem = gmt8.getHours() >= 12 ? 'PM' : 'AM';
     timeDiv.innerHTML = hours + ' : ' + minutes +' '+ meridiem;
     dateDiv.innerHTML = gmt8.toDateString();
-  })  
+
+    let waitTime = (60 - gmt8.getSeconds())*1000;
+    setTimeout(updateTime, waitTime)
+  }) 
+  .catch(error => {
+    updateTime();
+  }) 
 }
 
 updateTime();
 
-setInterval(updateTime, 60000);
 
 } //end of document ready
