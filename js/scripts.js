@@ -281,7 +281,7 @@ const timeDiv = document.querySelector('.date-time > .time');
 const dateDiv = document.querySelector('.date-time > .date');
 
 updateTime = () => {
-  fetch('http://worldtimeapi.org/api/timezone/Asia/Manila',{credentials: 'omit'})
+  fetch('https://worldtimeapi.org/api/timezone/Asia/Manila',{credentials: 'omit'})
   .then(response => response.json())
   .then(data => {
     let gmt8 = new Date(data.datetime);
