@@ -269,8 +269,6 @@ cardsContainer.addEventListener('touchstart', contactStart);
 cardsContainer.addEventListener('touchmove', contactDrag);
 cardsContainer.addEventListener('touchend', contactEnd)
 
-document.addEventListener('touchmove', function() { e.preventDefault(); }, { passive:false });
-
 
 
 // INITIAL FUNCTIONS TO RUN
